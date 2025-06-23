@@ -1,0 +1,71 @@
+.add-problem-container {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: #1a1a1a;
+  border-radius: 12px;
+  font-family: 'Courier New', monospace;
+  color: #e0e0e0;
+}
+
+.add-problem-container h2 {
+  color: #d6ff00;
+  margin-bottom: 1.5rem;
+}
+
+form label {
+  display: block;
+  margin-top: 1rem;
+  font-weight: bold;
+  color: #d6ff00;
+}
+
+form input[type="text"],
+form textarea,
+form select {
+  width: 100%;
+  margin-top: 0.5rem;
+  padding: 0.7rem;
+  border-radius: 6px;
+  border: none;
+  background-color: #2b2b2b;
+  color: white;
+  font-size: 1rem;
+}
+
+.tags-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.tag-option {
+  background-color: #2b2b2b;
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.tag-option.selected {
+  background-color: #d6ff00;
+  color: black;
+  font-weight: bold;
+}
+
+button[type="submit"] {
+  margin-top: 2rem;
+  padding: 0.8rem 1.5rem;
+  background-color: #d6ff00;
+  border: none;
+  border-radius: 8px;
+  color: black;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+button[type="submit"]:hover {
+  background-color: #c8ea00;
+}

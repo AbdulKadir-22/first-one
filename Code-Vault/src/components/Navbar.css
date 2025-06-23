@@ -1,0 +1,77 @@
+.navbar {
+  background-color: #1e1e1e;
+  color: #d6ff00;
+  padding: 1rem;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.navbar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.search-input {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  border-radius: 6px;
+  border: none;
+  outline: none;
+  background-color: #2b2b2b;
+  color: white;
+  width: 200px;
+}
+
+.tag-filter-bar {
+  margin-top: 1rem;
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.tag-btn {
+  background-color: #2b2b2b;
+  color: white;
+  border: none;
+  padding: 0.4rem 0.7rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.tag-btn:hover {
+  background-color: #3d3d3d;
+}
+
+.tag-btn.active {
+  background-color: #d6ff00;
+  color: black;
+}
+
+.navbar-columns {
+  margin-top: 1.2rem;
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+  border-bottom: 1px solid #444;
+  padding-bottom: 0.5rem;
+}
+
+.column-title {
+  flex: 3;
+}
+
+.column-difficulty {
+  flex: 1;
+  text-align: right;
+}
+
+.column-date {
+  flex: 1;
+  text-align: right;
+}

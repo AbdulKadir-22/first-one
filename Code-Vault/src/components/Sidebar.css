@@ -1,0 +1,41 @@
+.sidebar {
+  width: 180px;
+  background-color: #0f0f0f;
+  color: #d6ff00;
+  padding: 1.5rem 1rem;
+  font-family: 'Courier New', Courier, monospace;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+}
+
+.sidebar-title {
+  font-size: 1.4rem;
+  margin-bottom: 1.5rem;
+}
+
+.sidebar-menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar-menu li {
+  margin: 1rem 0;
+  cursor: pointer;
+  transition: color 0.2s ease-in;
+}
+
+.sidebar-menu li:hover {
+  color: white;
+}
+
+.streak-count {
+  color: #ff4500;
+  font-weight: bold;
+}
+
+.total-count {
+  color: #00ffff;
+}

@@ -1,0 +1,76 @@
+.problem-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.8rem 1rem;
+  border-bottom: 1px solid #333;
+  background-color: #1a1a1a;
+  color: white;
+  font-family: 'Courier New', Courier, monospace;
+  transition: background-color 0.2s ease;
+  cursor: pointer;
+}
+
+.problem-card:hover {
+  background-color: #2a2a2a;
+}
+
+.problem-index {
+  width: 30px;
+  color: #d6ff00;
+  font-weight: bold;
+}
+
+.problem-info {
+  flex: 3;
+}
+
+.problem-title {
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.problem-tags {
+  margin-top: 0.3rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.problem-tag {
+  background-color: #333;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  color: #d6ff00;
+}
+
+.problem-meta {
+  flex: 2;
+  display: flex;
+  justify-content: flex-end;
+  gap: 2rem;
+  text-align: right;
+}
+
+.problem-difficulty {
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+.problem-difficulty.easy {
+  color: #4caf50;
+}
+
+.problem-difficulty.medium {
+  color: #ff9800;
+}
+
+.problem-difficulty.hard {
+  color: #f44336;
+}
+
+.problem-date {
+  color: #bbb;
+  font-size: 0.9rem;
+}
