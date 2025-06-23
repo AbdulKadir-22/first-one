@@ -39,3 +39,13 @@
 .total-count {
   color: #00ffff;
 }
+
+.sidebar ul li {
+  margin: 0.8rem 0;
+  cursor: pointer;
+}
+
+
+.sidebar ul li:hover {
+  text-decoration: underline;
+}

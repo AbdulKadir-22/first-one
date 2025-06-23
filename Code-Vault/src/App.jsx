@@ -1,35 +1,21 @@
 import React, { useState } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
 import Navbar from './components/Navbar';
 import Sidebar from './components/Sidebar';
 import ProblemCard from './components/ProblemCard';
 import FilterBar from './components/FilterBar';
 import SearchBar from './components/SearchBar';
+import AddProblem from './pages/AddProblem';
 
 import './App.css';
 
-const sampleProblems = [
-  {
-    id: 1,
-    title: 'Two Sum',
-    tags: ['Array'],
-    difficulty: 'Easy',
-    date: '7–June–2025'
-  },
-  {
-    id: 2,
-    title: 'Longest Substring',
-    tags: ['String', 'SlidingWindow'],
-    difficulty: 'Medium',
-    date: '18–June–2025'
-  }
-];
-
-function App() {
+const Dashboard = ({ problems }) => {
   const [search, setSearch] = useState('');
   const [topic, setTopic] = useState('');
   const [difficulty, setDifficulty] = useState('');
 
-  const filtered = sampleProblems.filter((p) =>
+  const filtered = problems.filter((p) =>
     (!search || p.title.toLowerCase().includes(search.toLowerCase())) &&
     (!topic || p.tags.includes(topic)) &&
     (!difficulty || p.difficulty === difficulty)
@@ -37,18 +23,10 @@ function App() {
 
   return (
     <div style={{ display: 'flex' }}>
-      <Sidebar
-        streak={12}
-        total={sampleProblems.length}
-        onNavigate={(s) => alert(`Navigate to ${s}`)}
-      />
+      <Sidebar streak={12} total={problems.length} />
 
-      <div style={{ marginLeft: '200px', width: '100%' }}>
-        <Navbar
-          onSearchChange={setSearch}
-          selectedTag={topic}
-          onTagClick={setTopic}
-        />
+      <div style={{ marginLeft: '250px', padding: '1rem', width: '100%' }}>
+        <Navbar onSearchChange={setSearch} selectedTag={topic} onTagClick={setTopic} />
 
         <FilterBar
           selectedTopic={topic}
@@ -71,14 +49,48 @@ function App() {
             tags={problem.tags}
             difficulty={problem.difficulty}
             date={problem.date}
-            onClick={() => alert(`View: ${problem.title}`)}
+            onClick={() => alert(`Clicked: ${problem.title}`)}
           />
         ))}
       </div>
     </div>
-    
+  );
+};
+
+function App() {
+  const [problems, setProblems] = useState([
+    {
+      id: 1,
+      title: 'Two Sum',
+      tags: ['Array'],
+      difficulty: 'Easy',
+      date: '07–June–2025',
+    },
+    {
+      id: 2,
+      title: 'Longest Substring',
+      tags: ['String', 'SlidingWindow'],
+      difficulty: 'Medium',
+      date: '18–June–2025',
+    }
+  ]);
+
+  const addProblem = (problem) => {
+    const newProblem = {
+      ...problem,
+      id: problems.length + 1,
+    };
+    setProblems([newProblem, ...problems]);
+  };
+
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<Dashboard problems={problems} />} />
+        <Route path="/add" element={<AddProblem onAdd={addProblem} />} />
+      </Routes>
+    </Router>
   );
 }
 
 export default App;
-
