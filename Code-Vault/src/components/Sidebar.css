@@ -1,9 +1,9 @@
 .sidebar {
   width: 180px;
   background-color: #0f0f0f;
-  color: #d6ff00;
+  color: #C9F41F;
   padding: 1.5rem 1rem;
-  font-family: 'Courier New', Courier, monospace;
+  font-size: 25px;
   height: 100vh;
   position: fixed;
   left: 0;
@@ -32,12 +32,12 @@
 }
 
 .streak-count {
-  color: #ff4500;
+  color: #ec5c27;
   font-weight: bold;
 }
 
 .total-count {
-  color: #00ffff;
+  color: #ffffff;
 }
 
 .sidebar ul li {

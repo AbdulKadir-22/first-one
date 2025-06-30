@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-router-dom';
 
 import Navbar from './components/Navbar';
 import Sidebar from './components/Sidebar';
@@ -10,10 +10,11 @@ import AddProblem from './pages/AddProblem';
 
 import './App.css';
 
-const Dashboard = ({ problems }) => {
+const Dashboard = ({ problems, onEdit }) => {
   const [search, setSearch] = useState('');
   const [topic, setTopic] = useState('');
   const [difficulty, setDifficulty] = useState('');
+  const navigate = useNavigate();
 
   const filtered = problems.filter((p) =>
     (!search || p.title.toLowerCase().includes(search.toLowerCase())) &&
@@ -23,7 +24,7 @@ const Dashboard = ({ problems }) => {
 
   return (
     <div style={{ display: 'flex' }}>
-      <Sidebar streak={12} total={problems.length} />
+      <Sidebar streak={1} total={problems.length} />
 
       <div style={{ marginLeft: '250px', padding: '1rem', width: '100%' }}>
         <Navbar onSearchChange={setSearch} selectedTag={topic} onTagClick={setTopic} />
@@ -49,7 +50,7 @@ const Dashboard = ({ problems }) => {
             tags={problem.tags}
             difficulty={problem.difficulty}
             date={problem.date}
-            onClick={() => alert(`Clicked: ${problem.title}`)}
+            onClick={() => navigate(`/edit/${problem.id}`)}
           />
         ))}
       </div>
@@ -83,11 +84,30 @@ function App() {
     setProblems([newProblem, ...problems]);
   };
 
+  const updateProblem = (updated) => {
+    const updatedList = problems.map((p) =>
+      p.id === updated.id ? updated : p
+    );
+    setProblems(updatedList);
+  };
+
+  const getProblemById = (id) => problems.find((p) => p.id === parseInt(id));
+
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Dashboard problems={problems} />} />
-        <Route path="/add" element={<AddProblem onAdd={addProblem} />} />
+        <Route
+          path="/"
+          element={<Dashboard problems={problems} />}
+        />
+        <Route
+          path="/add"
+          element={<AddProblem onAdd={addProblem} />}
+        />
+        <Route
+          path="/edit/:id"
+          element={<AddProblem onUpdate={updateProblem} getProblemById={getProblemById} />}
+        />
       </Routes>
     </Router>
   );

@@ -8,8 +8,8 @@ const Sidebar = ({ streak = 0, total = 0 }) => {
   const isActive = (path) => location.pathname === path;
 
   return (
-    <div className="sidebar" style={{ backgroundColor: "black", color: "chartreuse", padding: "1rem", height: "100vh", width: "200px", position: "fixed", top: 0, left: 0 }}>
-      <h2 style={{ fontFamily: "monospace", marginBottom: "2rem" }}>Dashboard</h2>
+    <div className="sidebar" >
+      <h2>Dashboard</h2>
 
       <ul style={{ listStyle: "none", paddingLeft: 0 }}>
         <li>
@@ -18,18 +18,18 @@ const Sidebar = ({ streak = 0, total = 0 }) => {
           </Link>
         </li>
         <li>
-          <Link to="/" style={{ color: isActive("/") ? "orange" : "chartreuse", textDecoration: "none" }}>
+          <Link to="/" style={{ color: isActive("/") ? "#C9F41F" : "chartreuse", textDecoration: "none" }}>
             Topics
           </Link>
         </li>
         <li>
           <span>Tags</span>
         </li>
-        <li style={{ color: "red" }}>
-          Streak <span style={{ color: "orange" }}>{streak}🔥</span>
+        <li>
+          Streak <span>{streak}🔥</span>
         </li>
         <li>
-          Total: <span style={{ color: "cyan" }}>{total}</span>
+          Total: <span>{total}</span>
         </li>
       </ul>
     </div>

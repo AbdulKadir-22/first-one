@@ -8,24 +8,6 @@ const Navbar = ({ onSearchChange, selectedTag, onTagClick }) => {
     <nav className="navbar">
       <div className="navbar-header">
         <h1 className="navbar-title">Code–Vault</h1>
-        <input
-          type="text"
-          className="search-input"
-          placeholder="🔍 Search"
-          onChange={(e) => onSearchChange(e.target.value)}
-        />
-      </div>
-
-      <div className="tag-filter-bar">
-        {tags.map((tag) => (
-          <button
-            key={tag}
-            className={`tag-btn ${selectedTag === tag ? 'active' : ''}`}
-            onClick={() => onTagClick(tag)}
-          >
-            #{tag}
-          </button>
-        ))}
       </div>
 
       <div className="navbar-columns">

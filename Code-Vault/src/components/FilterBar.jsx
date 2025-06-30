@@ -20,20 +20,25 @@ const FilterBar = ({ selectedTopic, selectedDifficulty, onTopicChange, onDifficu
         ))}
       </div>
 
-      <div className="filter-section">
-        <span className="filter-label">Difficulty:</span>
-        {difficulties.map((level) => (
-          <button
-            key={level}
-            className={`filter-btn ${selectedDifficulty === level ? 'active' : ''}`}
-            onClick={() => onDifficultyChange(level)}
-          >
-            {level}
-          </button>
-        ))}
+      <div className="filter-footer">
+        <div className="filter-section">
+          <span className="filter-label">Difficulty:</span>
+          {difficulties.map((level) => (
+            <button
+              key={level}
+              className={`filter-btn ${selectedDifficulty === level ? 'active' : ''}`}
+              onClick={() => onDifficultyChange(level)}
+            >
+              {level}
+            </button>
+          ))}
+        </div>
+
+        <button className="clear-btn" onClick={onClear}>
+          🧹 Clear Filters
+        </button>
       </div>
 
-      <button className="clear-btn" onClick={onClear}>🧹 Clear Filters</button>
     </div>
   );
 };

@@ -1,5 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Aladin&display=swap');
+
+*{
+  font-family: "Aladin", system-ui;
+}
+
 body {
   font-family: 'Fira Code', monospace;
   background: #121212;
   color: #e0e0e0;
 }
+
